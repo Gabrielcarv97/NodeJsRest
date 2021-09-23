@@ -49,5 +49,16 @@ class Agenda {
             }
         })
     }
+    consultarPorMes(ids, res) { 
+        const sql = `SELECT * FROM AGENDA WHERE MES_ANIVERSARIO = ${ids.mesAniversario}`
+        conexao.query(sql,(erro, resultado) => {
+            if (erro) {
+                res.status(400).json(erro)
+            }
+            else {
+                res.status(200).json(resultado)
+            }
+        })
+    }
 }
 module.exports = new Agenda

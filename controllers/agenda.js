@@ -12,7 +12,7 @@ const Agenda = require('../models/agenda')
         const nome = req.params.nome
         Agenda.ExcluirPorNome(nome, res)
       })
-
+      
       app.patch('/alterarDiaOuMes', function (req, res) {
         const resum = {
           "nome" : req.body.nome,
@@ -28,6 +28,13 @@ const Agenda = require('../models/agenda')
           "mesAniversario" : parseInt(req.params.MES_ANIVERSARIO),
         }
         Agenda.consultarDiaeMes(ids, res)
+      })
+
+      app.get('/consultaPorMes/:MES_ANIVERSARIO', (req,res)=>{
+        const ids = {
+          "mesAniversario" : parseInt(req.params.MES_ANIVERSARIO),
+        }
+        Agenda.consultarPorMes(ids, res)
       })
 
       
