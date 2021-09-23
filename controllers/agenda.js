@@ -47,5 +47,9 @@ const Agenda = require('../models/agenda')
       app.get('/ordenaPorNome', (req, res)=>{        
         Agenda.ordenaPorNome(res)
       })
+      
+      app.get('/ordenaPorMes', (req, res)=>{        
+        Agenda.ordenaPorMes(res)
+      })
 
   }
