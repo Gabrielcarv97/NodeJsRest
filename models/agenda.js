@@ -71,5 +71,16 @@ class Agenda {
             }
         })
     }
+    ordenaPorNome(res) { 
+        const sql = `SELECT * FROM AGENDA ORDER BY NOME_PESSOA ASC`
+        conexao.query(sql,(erro, resultado) => {
+            if (erro) {
+                res.status(400).json(erro)
+            }
+            else {
+                res.status(200).json(resultado)
+            }
+        })
+    }
 }
 module.exports = new Agenda

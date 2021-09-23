@@ -43,5 +43,9 @@ const Agenda = require('../models/agenda')
         }
         Agenda.consultarPorLetra(ids, res)
       })
+      
+      app.get('/ordenaPorNome', (req, res)=>{        
+        Agenda.ordenaPorNome(res)
+      })
 
   }
