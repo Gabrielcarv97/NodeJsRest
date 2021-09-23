@@ -60,5 +60,16 @@ class Agenda {
             }
         })
     }
+    consultarPorLetra(ids, res) { 
+        const sql = `SELECT * FROM AGENDA WHERE NOME_PESSOA LIKE '${ids.letra}%'`
+        conexao.query(sql,(erro, resultado) => {
+            if (erro) {
+                res.status(400).json(erro)
+            }
+            else {
+                res.status(200).json(resultado)
+            }
+        })
+    }
 }
 module.exports = new Agenda

@@ -36,6 +36,12 @@ const Agenda = require('../models/agenda')
         }
         Agenda.consultarPorMes(ids, res)
       })
-
       
+      app.get('/consultaPorLetra/:LETRA', (req,res)=>{
+        const ids = {
+          "letra" : req.params.LETRA
+        }
+        Agenda.consultarPorLetra(ids, res)
+      })
+
   }
